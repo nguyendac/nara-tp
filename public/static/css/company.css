@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   会社概要（/company/）固有スタイル
+   ========================================================================== */
+
+/* ---------- 01 MESSAGE ---------- */
+.message{background:var(--paper)}
+.message-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.message .lead{
+  font-family:"Noto Sans JP";font-weight:700;font-size:34px;line-height:1.7;
+  letter-spacing:.06em;color:var(--green-ink);
+}
+.message .lead .mark{background:linear-gradient(transparent 60%, rgba(244,181,38,.5) 60%)}
+.message .body{margin-top:32px;font-size:15px;color:var(--ink-2);line-height:2}
+.message .sign{
+  margin-top:40px;display:flex;align-items:baseline;gap:16px;
+  padding-top:24px;border-top:1px solid var(--line);
+}
+.message .sign .title{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.message .sign .name{font-family:"Noto Sans JP";font-weight:700;font-size:20px;letter-spacing:.1em}
+
+.portrait{
+  position:relative;aspect-ratio:4/5;
+  background:#0a2a1c url('/static/img/president.jpg') 60% 30%/cover no-repeat;
+  width:60%;justify-self:center;
+}
+.portrait::before{content:"";position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--green);z-index:-1}
+.portrait .tag{
+  position:absolute;left:-8px;top:32px;background:var(--yellow);color:var(--ink);
+  padding:8px 18px;font-family:"Roboto";font-size:11px;letter-spacing:.24em;font-weight:700;
+}
+
+/* 会社概要の sec-head は英字タイトル下に黒の罫線を入れる */
+.company-main .sec-head .titles{border-bottom:1px solid var(--ink)}
+
+/* ---------- 02 PROFILE ---------- */
+.profile{background:#fff}
+.profile-table dl{
+  display:grid;grid-template-columns:300px 1fr;
+  padding:26px 8px;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.profile-table dt{
+  font-family:"Roboto";font-weight:700;font-size:12px;letter-spacing:.28em;color:var(--green);
+  display:grid;grid-template-columns:6px 170px 1fr;align-items:center;column-gap:14px;
+}
+.profile-table dt::before{content:"";width:6px;height:6px;background:var(--yellow);display:inline-block}
+.profile-table dt .jp{font-family:"Noto Sans JP";font-weight:500;font-size:13px;letter-spacing:.16em;color:var(--ink-2)}
+.profile-table dd{font-size:15px;color:var(--ink);line-height:1.9}
+.profile-table dd .note{color:var(--muted);font-size:12px;margin-left:8px}
+.profile-table ul{list-style:none;display:grid;grid-template-columns:1fr;gap:6px 32px}
+.profile-table ul li{position:relative;padding-left:16px}
+.profile-table ul li::before{content:"";position:absolute;left:0;top:.9em;width:8px;height:1px;background:var(--green)}
+
+/* ---------- STATS ---------- */
+.stats{background:var(--green-ink);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+.stats::before{
+  content:"NARA TRANSPORT";position:absolute;left:-2%;bottom:-32px;
+  font-family:"Roboto";font-weight:900;font-size:220px;letter-spacing:.02em;
+  color:rgba(255,255,255,.04);white-space:nowrap;pointer-events:none;
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;position:relative}
+.stat .k{font-family:"Roboto";font-weight:300;font-size:14px;letter-spacing:.2em;opacity:.75}
+.stat .v{font-family:"Roboto";font-weight:900;font-size:76px;line-height:1;margin-top:12px;letter-spacing:-.01em}
+.stat .v .unit{font-size:22px;font-weight:500;margin-left:6px;opacity:.85;letter-spacing:.06em}
+.stat .v .plus{color:var(--yellow)}
+.stat .desc{margin-top:14px;font-size:12px;letter-spacing:.16em;opacity:.7}
+
+/* ---------- 04 HISTORY ---------- */
+.history{background:#fff}
+.timeline{position:relative;padding-left:32px;list-style:none}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--line)}
+/* 200px + gap 88px = 288px。timeline の padding-left 32px と合わせて 320px となり、
+   sec-head の英字タイトル（280px + gap 40px）と左端がそろう */
+.tl-row{
+  display:grid;grid-template-columns:200px 1fr;gap:88px;
+  padding:22px 0;border-bottom:1px dashed var(--line);align-items:baseline;position:relative;
+}
+.tl-row::before{
+  content:"";position:absolute;left:-32px;top:32px;width:13px;height:13px;
+  border-radius:50%;background:#fff;border:2px solid var(--green);
+}
+.tl-row.milestone::before{background:var(--yellow);border-color:var(--yellow)}
+.tl-row .year{font-family:"Roboto";font-weight:900;font-size:28px;color:var(--green);letter-spacing:.02em}
+.tl-row .month{font-family:"Roboto";font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.tl-row .event{font-size:15px;color:var(--ink);line-height:1.8}
+.tl-row .event strong{color:var(--green-ink)}
+
+/* ---------- 05 LOCATIONS ---------- */
+.locations{background:var(--paper)}
+.loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line)}
+.loc{
+  background:#fff;padding:36px 32px;position:relative;transition:background .2s;
+  display:flex;flex-direction:column;gap:14px;min-height:220px;
+}
+.loc:hover{background:#fbfaf7}
+.loc.hq{
+  grid-column:1/-1;background:var(--green-ink);color:#fff;padding:56px 40px;
+  display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:40px;min-height:auto;
+}
+.loc.hq .badge{
+  display:inline-flex;align-items:center;gap:10px;font-family:"Roboto";font-size:11px;
+  letter-spacing:.3em;font-weight:700;color:var(--yellow);margin-bottom:8px;
+}
+.loc.hq .badge::before{content:"";width:20px;height:1px;background:var(--yellow)}
+.loc.hq h3{font-family:"Roboto";font-weight:900;font-size:38px;letter-spacing:.02em;line-height:1;color:#fff}
+.loc.hq h3 .jp{display:block;font-family:"Noto Sans JP";font-weight:500;font-size:14px;letter-spacing:.24em;margin-top:10px;color:rgba(255,255,255,.85)}
+.loc.hq .addr{color:rgba(255,255,255,.9);font-size:14px;line-height:1.9}
+.loc.hq .tel{font-family:"Roboto";font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.85);margin-top:8px}
+.loc.hq .map-cta{
+  align-self:end;display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;border:1px solid rgba(255,255,255,.4);
+  font-family:"Roboto";font-size:11px;letter-spacing:.24em;color:#fff;
+  transition:background .2s,color .2s,border-color .2s;white-space:nowrap;
+}
+.loc.hq .map-cta:hover{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+
+.loc .index{font-family:"Roboto";font-weight:900;font-size:12px;letter-spacing:.24em;color:var(--yellow)}
+.loc h4{font-family:"Roboto";font-weight:900;font-size:24px;letter-spacing:.04em;color:var(--ink)}
+.loc h4 .jp{display:block;font-family:"Noto Sans JP";font-weight:500;font-size:12px;letter-spacing:.2em;color:var(--muted);margin-top:6px}
+.loc .addr{font-size:13px;color:var(--ink-2);line-height:1.8}
+.loc .contact{margin-top:auto;font-family:"Roboto";font-size:12px;letter-spacing:.06em;color:var(--muted);display:flex;gap:20px;flex-wrap:wrap}
+.loc .contact span strong{color:var(--ink);font-weight:700;margin-right:6px;letter-spacing:.18em}
+.loc .map-link{
+  position:absolute;right:24px;bottom:24px;width:44px;height:44px;
+  border:1px solid var(--line);display:grid;place-items:center;transition:all .2s;
+}
+.loc .map-link:hover{background:var(--green);border-color:var(--green);color:#fff}
+.loc .map-link svg{width:18px;height:18px}
+
+/* ---------- CTA 背景写真（会社概要のみ） ---------- */
+.cta.cta--photo{
+  background:
+    linear-gradient(rgba(10,20,15,.78), rgba(10,20,15,.78)),
+    url('/static/img/heavy-truck.jpg') center/cover no-repeat;
+}
+.cta.cta--photo::before{display:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .message-grid,.loc-grid,.stats-grid{grid-template-columns:1fr}
+  .message .lead{font-size:26px}
+  .portrait{width:100%}
+  .profile-table dl{grid-template-columns:1fr;gap:6px}
+  .profile-table dt{grid-template-columns:6px auto 1fr}
+  .loc.hq{grid-template-columns:1fr;padding:36px 24px}
+  .loc.hq h3{font-size:28px}
+  .loc.hq .map-cta{align-self:start}
+  .tl-row{grid-template-columns:90px 1fr;gap:12px 16px}
+  .tl-row .year{font-size:22px}
+  .stat .v{font-size:56px}
+  .stats::before{font-size:120px}
+}

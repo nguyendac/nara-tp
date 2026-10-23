@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   物流業 / 事業内容（/business/）固有スタイル
+   ========================================================================== */
+
+/* 事業セクションの H2 は会社案内より大きめ（44px） */
+.business-main .svc-sec h2{font-size:44px}
+
+/* ---------- BRIDGE（セクション間の帯） ---------- */
+.bridge{padding:0;background:var(--green-ink);color:#fff;position:relative;overflow:hidden}
+.bridge::before{
+  content:"NARA · TRANSPORT · HIROSHIMA · CHALLENGE NEXT · ";
+  position:absolute;left:0;right:0;bottom:16px;white-space:nowrap;
+  font-family:"Roboto";font-weight:900;font-size:120px;letter-spacing:.02em;
+  color:rgba(255,255,255,.05);pointer-events:none;line-height:1;
+}
+.bridge-inner{
+  padding:80px 40px;max-width:1240px;margin:0 auto;position:relative;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;
+}
+.bridge h2{font-family:"Roboto";font-weight:900;font-size:44px;letter-spacing:.02em;line-height:1}
+.bridge h2 .jp{
+  display:block;font-family:"Noto Sans JP";font-weight:500;font-size:15px;
+  letter-spacing:.4em;margin-top:14px;color:rgba(255,255,255,.85);
+}
+.bridge .arrow-btn{
+  display:inline-flex;align-items:center;gap:14px;background:var(--yellow);color:var(--ink);
+  padding:18px 32px;font-family:"Roboto";font-weight:700;font-size:12px;letter-spacing:.24em;
+  transition:transform .2s;white-space:nowrap;
+}
+.bridge .arrow-btn::after{content:"→"}
+.bridge .arrow-btn:hover{transform:translateX(4px)}
+
+/* ---------- OUR COMMITMENT（2ピラー） ---------- */
+.support{background:var(--paper);padding:140px 0}
+.support-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--line);border:1px solid var(--line);margin-top:16px;
+}
+.pillar{background:#fff;padding:56px 44px;display:flex;flex-direction:column;gap:20px;position:relative}
+.pillar .no{font-family:"Roboto";font-weight:900;font-size:12px;letter-spacing:.28em;color:var(--yellow)}
+.pillar h3{font-family:"Noto Sans JP";font-weight:900;font-size:30px;line-height:1.4;letter-spacing:.04em;color:var(--green-ink)}
+.pillar h3 .en-sub{
+  display:block;font-family:"Roboto";font-weight:900;font-size:12px;
+  letter-spacing:.28em;color:var(--green);margin-bottom:10px;
+}
+.pillar .body{font-size:14px;color:var(--ink-2);line-height:2}
+.pillar ul{margin-top:6px;list-style:none;display:flex;flex-direction:column;gap:8px}
+.pillar ul li{position:relative;padding-left:22px;font-size:14px;color:var(--ink)}
+.pillar ul li::before{content:"";position:absolute;left:0;top:.75em;width:12px;height:2px;background:var(--yellow)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .business-main .svc-sec h2{font-size:28px}
+  .bridge-inner{grid-template-columns:1fr;padding:56px 20px}
+  .bridge h2{font-size:30px}
+  .bridge::before{font-size:64px}
+  .support{padding:90px 0}
+  .support-grid{grid-template-columns:1fr}
+  .pillar{padding:36px 24px}
+  .pillar h3{font-size:22px}
+}

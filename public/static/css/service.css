@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   サービス業（/service/）固有スタイル
+   レイアウトの大半は base.css の .svc-sec / .svc-row / .svc-sec.dark を使用。
+   ここではこのページだけの調整を定義する。
+   ========================================================================== */
+
+/* dark セクションが連続しても境目が分かるよう、明るい地のセクションは白にする */
+.service-main .svc-sec:not(.dark){background:#fff}
+.service-main .svc-sec:not(.dark) + .svc-sec:not(.dark){border-top:1px solid var(--line)}

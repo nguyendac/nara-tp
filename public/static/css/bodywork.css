@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   架装業 / bbt（/bbt/）固有スタイル
+   ========================================================================== */
+
+/* ---------- KV 写真 ---------- */
+.kv-photo{position:relative;background:#0a2a1c;overflow:hidden;padding:0}
+.kv-photo img{width:100%;height:auto;display:block}
+.kv-photo .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:120px 0 44px;
+  background:linear-gradient(180deg,transparent,rgba(6,28,19,.82));color:#fff;
+}
+.kv-photo .cap .en{font-family:"Roboto";font-weight:900;font-size:13px;letter-spacing:.3em;color:var(--yellow)}
+.kv-photo .cap .cap-h{font-family:"Noto Sans JP";font-weight:900;font-size:40px;letter-spacing:.06em;line-height:1.4;margin-top:10px}
+
+/* ---------- 01 WHY bbt ---------- */
+.reasons{background:var(--paper);padding:140px 0}
+.reasons .lead-p{font-size:15px;color:var(--ink-2);line-height:2.05;max-width:880px}
+.reason-grid{
+  margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  background:var(--line);border:1px solid var(--line);
+}
+.reason{background:#fff;padding:36px 28px 34px;display:flex;flex-direction:column;gap:18px;position:relative}
+.reason .n{font-family:"Roboto";font-weight:900;font-size:44px;line-height:1;color:var(--green);opacity:.15;letter-spacing:-.02em}
+.reason .ic{width:56px;height:56px;background:var(--green);display:grid;place-items:center;color:#fff;font-size:22px}
+.reason h3{font-family:"Noto Sans JP";font-weight:700;font-size:17px;line-height:1.7;letter-spacing:.04em;color:var(--green-ink)}
+.reason::after{content:"";position:absolute;left:28px;top:0;width:40px;height:3px;background:var(--yellow)}
+
+/* ---------- 02 FACTORY ---------- */
+.facility{background:#fff;padding:140px 0}
+.facility .gallery-wrap{max-width:960px;margin:0 auto}
+.bodywork-main .gallery .main{aspect-ratio:1920/1119}
+.bodywork-main .gallery .thumbs{grid-template-columns:repeat(5,1fr)}
+
+/* ---------- 03 FLOW ---------- */
+.flow{background:var(--paper);padding:140px 0}
+.steps{list-style:none;border-top:1px solid var(--ink)}
+.steps li{
+  display:grid;grid-template-columns:140px 72px 1fr;gap:32px;align-items:center;
+  padding:32px 8px;border-bottom:1px solid var(--line);position:relative;
+}
+.steps .no{font-family:"Roboto";font-weight:700;font-size:11px;letter-spacing:.3em;color:var(--muted)}
+.steps .no b{display:block;font-weight:900;font-size:48px;line-height:1;color:var(--green);letter-spacing:0;margin-top:4px}
+.steps .ic{width:72px;height:72px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--green);font-size:26px}
+.steps h3{font-family:"Noto Sans JP";font-weight:700;font-size:20px;letter-spacing:.06em;color:var(--green-ink)}
+.steps p{margin-top:8px;font-size:15px;color:var(--ink-2);line-height:1.95}
+/* 行の間の下向き矢印 */
+.steps li:not(:last-child)::after{
+  content:"";position:absolute;left:62px;bottom:-9px;width:16px;height:16px;
+  background:var(--paper);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transform:rotate(45deg);z-index:1;
+}
+
+/* ---------- CTA（3列カード） ---------- */
+.act{
+  color:#fff;padding:110px 0;
+  background:
+    radial-gradient(140% 90% at 85% 15%, rgba(244,181,38,.10) 0%, transparent 55%),
+    linear-gradient(135deg, #0c4e30 0%, #083020 55%, #061c13 100%);
+}
+.act .top{text-align:center}
+.act .en-big{font-family:"Roboto";font-weight:900;font-size:56px;letter-spacing:.02em;line-height:1}
+.act .jp{margin-top:18px;font-size:15px;letter-spacing:.3em;opacity:.9}
+.act-grid{
+  margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+}
+.act-grid a{
+  background:rgba(6,28,19,.6);padding:40px 36px;display:flex;flex-direction:column;gap:14px;
+  transition:background .2s;position:relative;
+}
+.act-grid a:hover{background:rgba(244,181,38,.12)}
+.act-grid .ic{font-size:26px;color:var(--yellow)}
+.act-grid .k{font-family:"Roboto";font-size:11px;letter-spacing:.28em;color:var(--yellow);font-weight:700}
+.act-grid .nm{font-family:"Noto Sans JP";font-weight:700;font-size:22px;letter-spacing:.08em}
+.act-grid .ds{font-size:13px;opacity:.75;line-height:1.8}
+.act-grid a::after{
+  content:"→";position:absolute;right:32px;bottom:32px;
+  font-family:"Roboto";font-size:18px;color:var(--yellow);transition:transform .2s;
+}
+.act-grid a:hover::after{transform:translateX(4px)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .kv-photo .cap{padding:80px 0 28px}
+  .kv-photo .cap .cap-h{font-size:24px}
+  .reasons,.facility,.flow{padding:90px 0}
+  .reason-grid{grid-template-columns:repeat(2,1fr)}
+  .bodywork-main .gallery .thumbs{grid-template-columns:repeat(3,1fr)}
+  .steps li{grid-template-columns:80px 1fr;gap:16px 20px}
+  .steps .ic{display:none}
+  .steps .no b{font-size:32px}
+  .steps li:not(:last-child)::after{left:32px}
+  .act{padding:80px 0}
+  .act .en-big{font-size:36px}
+  .act-grid{grid-template-columns:1fr}
+  .act-grid a{padding:28px 24px}
+}
+
+@media (max-width:600px){
+  .reason-grid{grid-template-columns:1fr}
+}

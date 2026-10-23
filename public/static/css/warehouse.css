@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   倉庫保管業（/agamarino/ 相当）固有スタイル
+   ========================================================================== */
+
+/* ---------- 倉庫を選ぶカード ---------- */
+.wh-pick{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.wh-pick-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr}
+.wh-card{
+  display:grid;grid-template-columns:220px 1fr;gap:28px;padding:32px 40px;
+  align-items:center;position:relative;transition:background .2s;
+}
+.wh-card + .wh-card{border-left:1px solid var(--line)}
+.wh-card:hover{background:var(--paper)}
+.wh-card .ph{aspect-ratio:4/3;background-size:cover;background-position:center}
+.wh-card .no{font-family:"Roboto";font-weight:900;font-size:11px;letter-spacing:.24em;color:var(--yellow)}
+.wh-card .en{display:block;font-family:"Roboto";font-weight:900;font-size:22px;letter-spacing:.04em;color:var(--ink);margin-top:6px}
+.wh-card .jp{display:block;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-top:2px}
+.wh-card .loc{margin-top:12px;font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+.wh-card::after{content:"→";position:absolute;right:28px;bottom:26px;color:var(--green);opacity:.4;transition:opacity .2s,transform .2s}
+.wh-card:hover::after{opacity:1;transform:translateX(3px)}
+
+/* ---------- 設備リスト ---------- */
+.spec-list{margin-top:32px;list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.spec-list li{
+  display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:baseline;
+  padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink);
+}
+.spec-list li .n{font-family:"Roboto";font-weight:900;font-size:12px;letter-spacing:.2em;color:var(--yellow)}
+.spec-list li strong{color:var(--green-ink)}
+
+/* ---------- ギャラリー（3:2・列数はページで指定） ---------- */
+.warehouse-main .gallery .main{aspect-ratio:3/2}
+.warehouse-main .gallery .thumbs.cols-4{grid-template-columns:repeat(4,1fr)}
+.warehouse-main .gallery .thumbs.cols-6{grid-template-columns:repeat(6,1fr)}
+
+/* リンクウ倉庫セクションは白地 */
+.svc-sec.on-white{background:#fff}
+
+/* ---------- 概要の表 ---------- */
+.wh-table{margin-top:96px}
+.wh-table h3{
+  font-family:"Roboto";font-weight:900;font-size:13px;letter-spacing:.28em;color:var(--green);
+  display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;
+}
+.wh-table h3::before{content:"";width:24px;height:1px;background:var(--yellow)}
+.wh-table h3 .jp{font-family:"Noto Sans JP";font-weight:700;font-size:15px;letter-spacing:.1em;color:var(--ink)}
+.wh-table dl{display:grid;grid-template-columns:220px 1fr;padding:22px 8px;border-bottom:1px solid var(--line);align-items:baseline}
+.wh-table dt{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--ink-2);display:flex;align-items:center;gap:12px}
+.wh-table dt::before{content:"";width:6px;height:6px;background:var(--yellow);flex:none}
+.wh-table dd{font-size:15px;line-height:1.9}
+.wh-table dd a{color:var(--green);font-weight:700;font-family:"Roboto";letter-spacing:.06em}
+
+/* ---------- 地図パネル ---------- */
+.map-panel{
+  margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--line);border:1px solid var(--line);
+}
+.map-panel figure{margin:0;background:#fff;display:flex;flex-direction:column}
+.map-panel .fig{height:380px;display:grid;place-items:center;overflow:hidden}
+.map-panel figure.dark .fig{background:var(--green-ink);padding:28px}
+.map-panel .fig img{max-width:100%;max-height:100%;object-fit:contain}
+.map-panel .fig img.cover{width:100%;height:100%;max-height:none;object-fit:cover}
+.map-panel .fig iframe{width:100%;height:100%;border:0;display:block}
+.map-panel figcaption{
+  padding:16px 24px;font-family:"Roboto";font-size:11px;letter-spacing:.24em;
+  color:var(--muted);border-top:1px solid var(--line);
+}
+.map-panel figcaption .jp{font-family:"Noto Sans JP";letter-spacing:.1em;margin-left:10px;color:var(--ink-2)}
+
+/* ---------- 比較表 ---------- */
+.compare{background:var(--paper);padding:140px 0}
+.cmp-scroll{overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);min-width:640px}
+.cmp th,.cmp td{padding:22px 24px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:14px;line-height:1.8}
+.cmp thead th{
+  background:var(--green-ink);color:#fff;font-family:"Roboto";font-weight:900;
+  font-size:18px;letter-spacing:.06em;border-bottom:4px solid var(--yellow);
+}
+.cmp thead th .jp{
+  display:block;font-family:"Noto Sans JP";font-weight:500;font-size:12px;
+  letter-spacing:.2em;color:rgba(255,255,255,.75);margin-top:4px;
+}
+.cmp thead th:first-child{background:var(--green-deep);width:200px}
+.cmp tbody th{width:200px;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--green);background:#fbfaf7}
+.cmp td + td{border-left:1px solid var(--line)}
+
+/* ---------- 電話のCTA ---------- */
+.tel-cta{
+  color:#fff;padding:110px 0;
+  background:
+    radial-gradient(140% 90% at 85% 15%, rgba(244,181,38,.10) 0%, transparent 55%),
+    linear-gradient(135deg, #0c4e30 0%, #083020 55%, #061c13 100%);
+}
+.tel-cta .top{text-align:center}
+.tel-cta .en-big{font-family:"Roboto";font-weight:900;font-size:56px;letter-spacing:.02em;line-height:1}
+.tel-cta .jp{margin-top:18px;font-size:15px;letter-spacing:.3em;opacity:.9}
+.tel-grid{
+  margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+}
+.tel-grid a{background:rgba(6,28,19,.6);padding:36px 40px;display:flex;flex-direction:column;gap:6px;transition:background .2s}
+.tel-grid a:hover{background:rgba(244,181,38,.12)}
+.tel-grid .k{font-family:"Roboto";font-size:11px;letter-spacing:.28em;color:var(--yellow);font-weight:700}
+.tel-grid .nm{font-size:15px;letter-spacing:.1em}
+.tel-grid .num{font-family:"Roboto";font-weight:900;font-size:40px;letter-spacing:.04em;line-height:1.1;margin-top:6px}
+.tel-grid .num small{font-size:16px;font-weight:500;margin-right:10px;letter-spacing:.1em;opacity:.8}
+.tel-cta .btn-row{text-align:center;margin-top:48px}
+.tel-cta .btn{
+  display:inline-flex;align-items:center;gap:16px;background:var(--yellow);color:var(--ink);
+  padding:22px 40px;font-family:"Roboto";font-weight:700;font-size:13px;letter-spacing:.24em;
+  transition:transform .2s;
+}
+.tel-cta .btn:hover{transform:translateX(4px)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .wh-pick-inner,.map-panel,.tel-grid{grid-template-columns:1fr}
+  .wh-card{grid-template-columns:120px 1fr;padding:24px 20px;gap:18px}
+  .wh-card + .wh-card{border-left:0;border-top:1px solid var(--line)}
+  .warehouse-main .gallery .thumbs.cols-6{grid-template-columns:repeat(3,1fr)}
+  .wh-table{margin-top:56px}
+  .wh-table dl{grid-template-columns:1fr;gap:6px}
+  .map-panel{margin-top:40px}
+  .map-panel .fig{height:280px}
+  .compare{padding:90px 0}
+  .cmp thead th:first-child,.cmp tbody th{width:110px}
+  .tel-cta{padding:80px 0}
+  .tel-cta .en-big{font-size:36px}
+  .tel-grid a{padding:28px 24px}
+  .tel-grid .num{font-size:30px}
+}

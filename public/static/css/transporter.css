@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   車両紹介（/transporter/）固有スタイル
+   ========================================================================== */
+
+/* ---------- LINE UP ---------- */
+.fleet{background:var(--paper);padding:120px 0 140px}
+.fleet-bar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.fleet-tabs{display:flex;border:1px solid var(--line);background:#fff;flex-wrap:wrap}
+.fleet-tabs button{
+  appearance:none;border:0;background:none;cursor:pointer;padding:16px 24px;
+  font-family:"Noto Sans JP";font-size:14px;font-weight:500;letter-spacing:.08em;color:var(--ink-2);
+  display:flex;align-items:center;gap:10px;transition:background .2s,color .2s;
+}
+.fleet-tabs button + button{border-left:1px solid var(--line)}
+.fleet-tabs button .c{font-family:"Roboto";font-weight:700;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fleet-tabs button:hover{background:var(--paper)}
+.fleet-tabs button[aria-selected="true"]{background:var(--green);color:#fff}
+.fleet-tabs button[aria-selected="true"] .c{color:var(--yellow)}
+.fleet-count{font-family:"Roboto";font-size:12px;letter-spacing:.24em;color:var(--muted)}
+.fleet-count b{font-weight:900;font-size:28px;color:var(--green);letter-spacing:0;margin-right:6px}
+
+/* 各カードの右と下に線を引き、最終行の空きマスが灰色にならないようにする */
+.fleet-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:transparent;
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+}
+.v-card{
+  background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;position:relative;transition:background .25s;
+}
+.v-card[hidden]{display:none}
+.v-card .ph{aspect-ratio:16/10;display:grid;place-items:center;padding:28px 24px 8px;position:relative;overflow:hidden}
+.v-card .ph::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:34%;
+  background:linear-gradient(180deg,transparent,rgba(15,93,58,.05));
+}
+.v-card .ph img{
+  position:relative;max-width:100%;max-height:100%;object-fit:contain;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.v-card:hover{background:#fbfaf7}
+.v-card:hover .ph img{transform:translateX(8px)}
+.v-card .no{
+  position:absolute;left:20px;top:18px;font-family:"Roboto";font-weight:900;
+  font-size:12px;letter-spacing:.2em;color:var(--yellow);z-index:1;
+}
+.v-card .meta{
+  padding:18px 24px 24px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:12px;
+}
+.v-card h3{font-family:"Noto Sans JP";font-weight:700;font-size:17px;letter-spacing:.04em;color:var(--ink);line-height:1.5}
+.v-card .tag{
+  flex:none;font-family:"Roboto";font-weight:700;font-size:10px;letter-spacing:.2em;
+  color:var(--green);border:1px solid rgba(15,93,58,.35);padding:4px 10px;
+}
+.fleet-note{margin-top:24px;font-size:12px;color:var(--muted);letter-spacing:.06em}
+
+/* ---------- 紺の帯 ---------- */
+.pit-band{background:var(--dark);color:#fff;padding:0}
+.pit-band .inner{max-width:1240px;margin:0 auto;padding:44px 40px;display:flex;align-items:center;gap:28px}
+.pit-band .k{
+  flex:none;font-family:"Roboto";font-weight:900;font-size:12px;letter-spacing:.3em;
+  color:var(--yellow);display:flex;align-items:center;gap:12px;
+}
+.pit-band .k::after{content:"";width:40px;height:1px;background:var(--yellow)}
+.pit-band p{font-family:"Noto Sans JP";font-weight:700;font-size:22px;letter-spacing:.06em;line-height:1.6}
+
+/* ---------- IN-HOUSE PIT ---------- */
+.pit{background:#fff;padding:140px 0}
+.pit-row{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
+.pit h2{font-family:"Noto Sans JP";font-weight:900;font-size:38px;line-height:1.45;letter-spacing:.04em;color:var(--green-ink);margin-top:18px}
+.pit h2 .en-sub{
+  display:block;font-family:"Roboto";font-weight:900;font-size:14px;
+  letter-spacing:.28em;color:var(--yellow);margin-bottom:14px;
+}
+.pit .body{margin-top:28px;font-size:15px;color:var(--ink-2);line-height:2.05}
+.pit .body p + p{margin-top:18px}
+.pit-points{
+  margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:var(--line);border:1px solid var(--line);
+}
+.pit-points div{background:#fff;padding:20px 20px 22px}
+.pit-points .n{font-family:"Roboto";font-weight:900;font-size:11px;letter-spacing:.24em;color:var(--yellow)}
+.pit-points .t{margin-top:8px;font-weight:700;font-size:14px;color:var(--green-ink);line-height:1.6}
+
+.pit-photos{display:grid;gap:20px;position:relative}
+.pit-photos figure{margin:0;position:relative;aspect-ratio:41/27;overflow:hidden;background:#0a2a1c}
+.pit-photos figure img{width:100%;height:100%;object-fit:cover}
+/* 2枚目は幅78%で右に寄せ、白い縁取りで重ねる */
+.pit-photos figure:nth-of-type(2){width:78%;margin-left:auto;margin-top:-56px;outline:8px solid #fff}
+.pit-photos .badge{
+  position:absolute;left:-8px;top:24px;background:var(--yellow);color:var(--ink);
+  padding:8px 18px;font-family:"Roboto";font-size:11px;letter-spacing:.24em;font-weight:700;z-index:2;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .fleet{padding:90px 0 100px}
+  .fleet-grid{grid-template-columns:repeat(2,1fr)}
+  .pit{padding:90px 0}
+  .pit-row{grid-template-columns:1fr;gap:48px}
+  .pit h2{font-size:28px}
+  .pit-band .inner{flex-direction:column;align-items:flex-start;padding:36px 20px;gap:16px}
+  .pit-band p{font-size:17px}
+  .pit-points{grid-template-columns:1fr}
+  .pit-photos figure:nth-of-type(2){margin-top:-32px;outline-width:6px}
+}
+
+@media (max-width:600px){
+  .fleet-grid{grid-template-columns:1fr}
+  .fleet-tabs button{padding:12px 16px;font-size:13px}
+}
